@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 To run the code 
 ```yaml
-cd backend2\notes
+cd backend\notes
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
