@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 To run the code 
 ```yaml
-cd backend\notes
+cd backend/notes
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
@@ -26,7 +26,7 @@ npm install axios react-router-dom jwt-decode
 ```
 To run the code
 ```yaml
-cd frontend\frontend
+cd frontend/frontend
 npm run dev
 ```
 
