@@ -1,5 +1,9 @@
 .venv
 node_modules
+<<<<<<< HEAD
 
 __pycache__
 .vs
+=======
+.idea
+>>>>>>> 590bb7163fc7ab4ed237fc36a924efefe41824cf
