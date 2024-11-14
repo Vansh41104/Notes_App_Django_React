@@ -29,9 +29,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 6104
     ports:
-      - "5432:5432"
+      - "5433:5432"  # Use host port 5433 instead of 5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
 
 volumes:
   postgres-data:
