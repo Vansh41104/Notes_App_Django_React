@@ -32,5 +32,10 @@ npm run dev
 
 To run the code we would have to simultaneously run the fronend and the backend code
 
+# Using through Docker
+```yaml
+docker-compose up -d
+```
+
 # CREDITS FOR THE INSPIRATION
 https://www.youtube.com/watch?v=c-QsfbznSXI
