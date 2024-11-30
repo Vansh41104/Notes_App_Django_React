@@ -48,6 +48,29 @@ function Home() {
 
     return (
         <div>
+            <button
+                onClick={() => {
+                    api.post('/logout/')
+                        .then(() => {
+                            // Handle successful logout, e.g., redirect to login page
+                            window.location.href = '/login';
+                        })
+                        .catch((err) => alert('Failed to logout'));
+                }}
+                style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    padding: '10px 20px',
+                    backgroundColor: '#007BFF',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer'
+                }}
+            >
+                Logout
+            </button>
             <div>
                 <h2 align="center">Notes added previously</h2>
                 {notes.map((note) => (
