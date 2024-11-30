@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../api";
-import Note from "../components/Notes"
-import "../styles/Home.css"
+import Note from "../components/Notes";
+import "../styles/Home.css";
 
 function Home() {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const navigate = useNavigate(); // Hook for navigation
 
     useEffect(() => {
         getNotes();
@@ -27,9 +28,7 @@ function Home() {
     const deleteNote = (id) => {
         api
             .delete(`/api/notes/delete/${id}/`)
-            .then((res) => {
-                // if (res.status === 204) alert("Note deleted!");
-                // else alert("Failed to delete note.");
+            .then(() => {
                 getNotes();
             })
             .catch((error) => alert(error));
@@ -39,25 +38,21 @@ function Home() {
         e.preventDefault();
         api
             .post("/api/notes/", { content, title })
-            .then((res) => {
-                // if (res.status === 201) alert("Note created!");
-                // else alert("Failed to make note.");
+            .then(() => {
                 getNotes();
             })
             .catch((err) => alert(err));
     };
 
-    function Logout() {
+    const handleLogout = () => {
         localStorage.clear();
-        return <Navigate to="/login" />;
-    }
+        navigate("/login"); // Navigate to the login page
+    };
 
     return (
         <div>
             <button
-                onClick={() => {
-                    Logout();
-                }}
+                onClick={handleLogout}
                 style={{
                     position: 'absolute',
                     top: '10px',
