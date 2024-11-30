@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import api from "../api";
 import Note from "../components/Notes"
 import "../styles/Home.css"
@@ -46,16 +47,16 @@ function Home() {
             .catch((err) => alert(err));
     };
 
+    function Logout() {
+        localStorage.clear();
+        return <Navigate to="/login" />;
+    }
+
     return (
         <div>
             <button
                 onClick={() => {
-                    api.post('/logout/')
-                        .then(() => {
-                            // Handle successful logout, e.g., redirect to login page
-                            window.location.href = '/login';
-                        })
-                        .catch((err) => alert('Failed to logout'));
+                    Logout();
                 }}
                 style={{
                     position: 'absolute',
